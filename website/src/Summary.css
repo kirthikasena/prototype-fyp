@@ -1,0 +1,96 @@
+.main-container {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  min-height: 90vh; /* Full height of the viewport */
+  background-color: #79b4be; /* Or any color you prefer */
+  position: relative;
+}
+
+.summary-container {
+  width: 90%; /* Adjust the width as needed */
+  max-width: 1700px; /* Maximum width of the container */
+  margin: 50px auto; /* Centers the container with 50px top and bottom margin */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items to the center of the container */
+  background-color: #609290;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  min-height: 400px; /* Set a min-height for the whole container if needed */
+}
+
+.bottom-right-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 200px; /* Set a max-width for the image */
+  max-height: 200px; /* Set a max-height for the image */
+  padding-right: 150px;
+}
+
+.summary, .strategies {
+  flex: 1; /* Each child will take up an equal amount of space */
+  margin: 10px; /* Margin around boxes for spacing */
+  padding: 20px;
+  background-color: #9ccca5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: auto; /* Adjust height as content needs */
+  min-height: 300px;
+}
+
+.summary h2, .strategies h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* Back button styling */
+.summary-container .back-button {
+  align-self: flex-start; /* Align the back button to the start of the flex container */
+    padding: 1rem 2rem; /* Larger padding for bigger buttons */
+    border-radius: 10px; /* Rounded corners */
+    border: none; /* No border */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: bold; /* Make text bold */
+    letter-spacing: 1px; /* Space out the letters a little */
+    background-color: #9ccca5; /* Primary button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Cursor indicates button can be clicked */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for effects */
+  
+}
+
+.summary-container button:hover, .summary-container button:focus {
+  transform: translateY(-2px); /* Slightly raise the button */
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for a "lifted" effect */
+  background-color: #367B37;
+}
+
+.summary-container button:active {
+  transform: translateY(1px); /* Slightly depress the button when clicked */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Smaller shadow for a "pressed" effect */
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center; /* Center the items when they stack on top of each other */
+  }
+
+  .summary, .strategies {
+    width: 80%; /* Adjust width on mobile for better readability */
+    margin-bottom: 20px; /* Add space between stacked items */
+    min-height: 200px; /* Optional: Adjust the min-height for mobile if necessary */
+  }
+}
+
+.content-container {
+  display: flex;
+  width: 100%; /* Take the full width of the parent container */
+  justify-content: space-around; /* Space around the items */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+}
