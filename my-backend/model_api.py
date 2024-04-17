@@ -16,8 +16,6 @@ from dotenv import load_dotenv
 logging.set_verbosity_error()
 
 
-
-
 # Load environment variables from .env file
 load_dotenv()
 
