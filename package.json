@@ -5,9 +5,9 @@
   "main": "index.js",
 
   "scripts": {
-    "start": "node index.js",
+    "start": "node my-backend/index.js",
     "dev": "nodemon index.js",
-    "heroku-postbuild": "cd ../website && npm install && npm run build"
+    "heroku-postbuild": "cd website && npm install && npm run build"
   },
 
  

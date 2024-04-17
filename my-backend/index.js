@@ -10,7 +10,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5000; 
 // Setup CORS
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../website/build')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // // Setup middleware
 // app.use(cors()); // Enable CORS for all routes
@@ -105,12 +105,18 @@ app.post('/upload', upload.any(), (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
-  app.use(express.static(path.join(__dirname, '../website/build')));
+  app.use(express.static(path.join(__dirname, '/website/build')));
   
   // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../website/build', 'index.html'));
-  });
+//   app.get('*', function(req, res) {
+//     res.sendFile(path.join(__dirname, '/website/build', 'index.html'));
+//   });
+// }
+
+//Put this after all middleware. Otherwise, Heroku will give you 304 page
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 }
 
 app.listen(PORT, () => {
