@@ -6,9 +6,26 @@
     padding: 1rem;
     box-sizing: border-box;
     background-color: #79b4be;
+    position: relative;
   }
   
+ .home-button{
+  padding: 1rem 2rem; /* Larger padding for bigger buttons */
+  border-radius: 10px; /* Rounded corners */
+  border: none; /* No border */
+  font-size: 1.2rem; /* Larger font size */
+  font-weight: bold; /* Make text bold */
+  letter-spacing: 1px; /* Space out the letters a little */
+  background-color: #9ccca5; /* Primary button color */
+  color: white; /* Text color */
+  cursor: pointer; /* Cursor indicates button can be clicked */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for effects */
+  position: absolute;
+  margin-top: 13rem;
+  margin-left:10rem;
 
+ }
   .image-section{
     display: flex;
     width: 100%;
@@ -18,6 +35,7 @@
     padding: 1rem;
     box-sizing: border-box;
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
+    
 
   }
   .bottom-left-image {

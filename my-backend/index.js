@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const { exec } = require('child_process');
+const fs = require('fs');  // Required for file operations
 const app = express();
 const port = 5000;
 
@@ -12,6 +13,18 @@ app.use(cors());
 // app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON bodies
 
+app.post('/delete-file', (req, res) => {
+  const filePath = req.body.filePath;  // Ensure you send this from the client
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error('File deletion error:', err);
+      return res.status(500).send('Error deleting file');
+    }
+    console.log('File deleted successfully');
+    res.send('File deleted successfully');
+  });
+});
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
