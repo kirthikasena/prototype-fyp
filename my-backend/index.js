@@ -10,6 +10,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5000; 
 // Setup CORS
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../website/build')));
 
 // // Setup middleware
 // app.use(cors()); // Enable CORS for all routes
