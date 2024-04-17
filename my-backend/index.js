@@ -4,8 +4,10 @@ const cors = require('cors');
 const { exec } = require('child_process');
 const fs = require('fs');  // Required for file operations
 const app = express();
-const port = 5000;
+// const port = 5000;
 
+
+const PORT = process.env.PORT || 5000; 
 // Setup CORS
 app.use(cors());
 
@@ -100,7 +102,7 @@ app.post('/upload', upload.any(), (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
 });
 
