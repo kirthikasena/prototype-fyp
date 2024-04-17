@@ -1,0 +1,50 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.header {
+  text-align: left;
+  color: #2f4f4f;
+}
+
+.tagline {
+  font-size: 1.2em;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-section, .country-section {
+  margin: 20px;
+}
+
+.upload-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.file-icon {
+  /* Add styles for file icon */
+}
+
+.countries {
+  display: flex;
+  justify-content: space-around;
+}
+
+.country-button {
+  border: none;
+  background-color: #e7e7e7;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.country-button:hover {
+  background-color: #ffffff;
+}
