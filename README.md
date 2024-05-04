@@ -32,11 +32,6 @@ HUGGINGFACE_TOKEN=your_hugging_face_token_here
 
 ```
 
-```bash
-cd my-backend
-pip install -r requirements.txt # Install all required packages
-```
-
 ## Getting Started
 
 ### Backend Set-up
