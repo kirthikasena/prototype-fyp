@@ -51,3 +51,7 @@ cd website
 npm install
 npm start
 ```
+
+### the sample review file to upload in the application
+
+the csv file of reviews and the format is given with the name :'sample_reviews'
