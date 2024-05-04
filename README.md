@@ -1,4 +1,4 @@
-# Prompt-based application for sustainble solutions adresssing the concerns of customer based on food,location(geo-location) and Guest-relations(customer service)
+# Prototype-FYP
 
 ## Introduction
 
