@@ -12,6 +12,7 @@ This document provides instructions on how to set up and run the application loc
 ## install libraries for python scripts
 
 ```bash
+cd my-backend
 pip install -r requirements.txt # Install all required packages
 ```
 
