@@ -16,6 +16,27 @@ cd my-backend
 pip install -r requirements.txt # Install all required packages
 ```
 
+## add environmnet variables-set up Hugging face token
+
+```bash
+
+# create .env file
+touch .env  # Unix/macOS
+type nul > .env  # Windows
+
+# Edit the .env File
+nano .env  # or vim .env
+
+# Add the hugging face token with the exact variable name
+HUGGINGFACE_TOKEN=your_hugging_face_token_here
+
+```
+
+```bash
+cd my-backend
+pip install -r requirements.txt # Install all required packages
+```
+
 ## Getting Started
 
 ### Backend Set-up
