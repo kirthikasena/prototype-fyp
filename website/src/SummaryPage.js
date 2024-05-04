@@ -4,7 +4,7 @@ import handWithPlant from './images/sus-5.gif';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const SummaryPage = () => {
-  const location = useLocation(); // Correct use of useLocation
+  const location = useLocation(); 
   const data = location.state?.result;
   console.log(data)
   const aspect = location.state?.aspect;

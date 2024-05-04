@@ -21,7 +21,6 @@ function ButtonsPage() {
      }
 
     const handleReuploadClick = () => {
-        // Assuming you store the path in localStorage or you need to adjust this logic
         const filePath = localStorage.getItem('uploadedFilePath');
 
         fetch('http://localhost:5000/delete-file', {

@@ -9,7 +9,6 @@ const port = 5000;
 app.use(cors());
 
 // // Setup middleware
-// app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON bodies
 
 
@@ -27,7 +26,7 @@ const storage = multer.diskStorage({
 // Configure Multer with custom storage
 const upload = multer({ storage: storage });
 
-
+// upload post 
 app.post('/upload', upload.any(), (req, res) => {
   console.log('Files received:', req.files);  // Correct: req.files is an array
 
@@ -54,8 +53,6 @@ app.post('/upload', upload.any(), (req, res) => {
     if (stderr) {
       console.error(`Python stderr: ${stderr}`);
     }
-  
-    // Assuming the output file is named 'text.txt' and located in the same directory
         try {
 
           const startIndex = stdout.indexOf('{');
@@ -86,7 +83,7 @@ app.post('/upload', upload.any(), (req, res) => {
     });
 });
 
-
+// port initialize
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
