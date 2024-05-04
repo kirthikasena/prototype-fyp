@@ -65,14 +65,10 @@ function ButtonsPage() {
 
 
             </div>
+            </div>
+    
 
-
-            
-        </div>
-    );
+        );
 }
 
 export default ButtonsPage;
-
-
-

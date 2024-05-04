@@ -16,9 +16,17 @@ from dotenv import load_dotenv
 logging.set_verbosity_error()
 
 
+
+
 # Load environment variables from .env file
 load_dotenv()
 
+# Retrieve the API token
+# api_token = os.getenv('HUGGINGFACE_API_KEY')
+# if not api_token:
+#     print("API token is not set.")
+# else:
+#     print("API Token:", api_token)
 
 aspects = ['food', 'Geo-context', 'Guest-relations']
 
@@ -56,11 +64,9 @@ column_aspect_mapping = {
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
-repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
-
-# llm = HuggingFaceEndpoint(
-#     repo_id=repo_id, max_length=128, temperature=0.001, do_sample=True, token=HUGGINGFACEHUB_API_TOKEN
-# )
+# repo_id = "meta-llama/Llama-2-7b-chat-hf"
+repo_id="mistralai/Mistral-7B-Instruct-v0.2"
+# repo_id="mistral-community/Mixtral-8x22B-v0.1"
 
 llm = HuggingFaceEndpoint(
     repo_id=repo_id,
@@ -73,6 +79,17 @@ llm = HuggingFaceEndpoint(
     }
 )
 
+# Set the url to your Inference Endpoint below
+# your_endpoint_url = "https://cdim4oavh3jta688.us-east-1.aws.endpoints.huggingface.cloud"
+# llm = HuggingFaceEndpoint(
+#     endpoint_url=f"{your_endpoint_url}",
+#     max_new_tokens=200,
+#     top_k=10,
+#     top_p=0.95,
+#     typical_p=0.95,
+#     temperature=0.01,
+#     repetition_penalty=1.03,
+# )
 
 def final_output_format(innovations, reasoning):
   return f"""
@@ -130,27 +147,18 @@ def filter_reviews(df, column_aspect_mapping, exclusion_phrases):
     - Dictionary with aspects as keys and lists of reviews as values, excluding
       reviews containing any of the specified exclusion phrases.
     """
-    # Additional exclusion phrases for non-food aspects
-    non_food_exclusions = ['menu', 'order','food']
-
     # Initialize a dictionary to store reviews, with aspects as keys
     reviews_dict = {aspect: [] for aspect in column_aspect_mapping.values()}
 
     # Iterate through each column specified in the mapping
     for column, aspect in column_aspect_mapping.items():
-        # Decide exclusion list based on aspect
-        if aspect != 'food':  # Apply non-food exclusions only for non-food aspects
-            combined_exclusions = exclusion_phrases + non_food_exclusions
-        else:
-            combined_exclusions = exclusion_phrases
-
         # Iterate over the DataFrame rows
         for index, row in df.iterrows():
             # Retrieve the review text from the current column
             review_text = row[column]
 
-            # Check if the review does NOT contain any of the combined exclusion phrases
-            if not any(phrase in review_text for phrase in combined_exclusions):
+            # Check if the review does NOT contain any of the exclusion phrases
+            if not any(phrase in review_text for phrase in exclusion_phrases):
                 # Append the review to the list in the dictionary for the corresponding aspect
                 reviews_dict[aspect].append(review_text)
     
@@ -187,28 +195,21 @@ def get_final_innovations(llm, country, summary):
     reasoning = reasoning_chain.invoke({'innovations': innovations, 'summary': summary})
     return final_output_format(innovations, reasoning)
 
-def read_data(file_path):
-    if file_path.endswith('.csv'):
-        df = pd.read_csv(file_path)
-    elif file_path.endswith(('.xls', '.xlsx')):
-        df = pd.read_excel(file_path)
-    else:
-        raise ValueError("Unsupported file format")
-    return df
+
 
 
 if __name__ == "__main__":
     file_path = sys.argv[1]
     country = sys.argv[2]
 
-    # file_path = 'C:/Users/HP/Documents/year 4/Individual Research/prototype/website/my-backend/uploads/file-1713297279660-493297330sample.xlsx'
+    # file_path = 'C:/Users/HP/Documents/year 4/Individual Research/prototype/new/website/my-backend/uploads/file-1712891905344-952970283sample_reviews.xlsx'
     # country = 'Sri lanka'
     # print(f'token:{HUGGINGFACEHUB_API_TOKEN}')
 
 
     reviews_summary_dict = {}
 
-    df=read_data(file_path)
+    df=pd.read_excel(file_path)
 
     for aspect in aspects:
         process_hotel_data(llm,df,aspect)

@@ -2,32 +2,16 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const { exec } = require('child_process');
-const fs = require('fs');  // Required for file operations
 const app = express();
-// const port = 5000;
-const path = require('path');
+const port = 5000;
 
-const PORT = process.env.PORT || 5000; 
 // Setup CORS
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // // Setup middleware
 // app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON bodies
 
-app.post('/delete-file', (req, res) => {
-  const filePath = req.body.filePath;  // Ensure you send this from the client
-
-  fs.unlink(filePath, (err) => {
-    if (err) {
-      console.error('File deletion error:', err);
-      return res.status(500).send('Error deleting file');
-    }
-    console.log('File deleted successfully');
-    res.send('File deleted successfully');
-  });
-});
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -103,23 +87,7 @@ app.post('/upload', upload.any(), (req, res) => {
 });
 
 
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, '/website/build')));
-  
-  // Handle React routing, return all requests to React app
-//   app.get('*', function(req, res) {
-//     res.sendFile(path.join(__dirname, '/website/build', 'index.html'));
-//   });
-// }
-
-//Put this after all middleware. Otherwise, Heroku will give you 304 page
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-}
-
-app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Server listening at http://localhost:${port}`);
 });
 

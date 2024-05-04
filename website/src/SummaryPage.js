@@ -97,7 +97,7 @@ const SummaryPage = () => {
             <p>{formatText(summary)}</p> {/* Apply formatting to summary */}
           </div>
           <div className="strategies">
-            <h2>Sustainable Solution</h2>
+            <h2>Solution</h2>
             {formatText(solutionText)}
             <h2>Reasoning</h2>
             {formatText(reasoningText)}

@@ -1,15 +1,58 @@
 .buttons-page {
-    display: flex;
-    justify-content: center; /* Distribute space between children */
-    align-items: center; /* Vertically align children */
-    min-height: 90vh; /* Use full viewport height */
-    padding: 1rem;
-    box-sizing: border-box;
-    background-color: #79b4be;
-    position: relative;
-  }
+  display: flex;
+  justify-content: center; /* Distribute space between children */
+  align-items: center; /* Vertically align children */
+  min-height: 90vh; /* Use full viewport height */
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #79b4be;
+  position: relative;
+}
+
+.home-button{
+padding: 1rem 2rem; /* Larger padding for bigger buttons */
+border-radius: 10px; /* Rounded corners */
+border: none; /* No border */
+font-size: 1.2rem; /* Larger font size */
+font-weight: bold; /* Make text bold */
+letter-spacing: 1px; /* Space out the letters a little */
+background-color: #9ccca5; /* Primary button color */
+color: white; /* Text color */
+cursor: pointer; /* Cursor indicates button can be clicked */
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for effects */
+position: absolute;
+margin-top: 13rem;
+margin-left:10rem;
+
+}
+.image-section{
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Adjust as necessary */
+  align-items: center;
+  justify-content: center; /* Center the children */
+  padding: 1rem;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Wrap items to the next line if not enough space */
   
- .home-button{
+
+}
+.bottom-left-image {
+  flex: 1; /* Allow the image to grow */
+  max-width: 50%; /* Set the maximum width for the image */
+  height: auto;
+  margin-right: 2rem; /* Add some right margin to the image */
+}
+
+.button-section {
+  flex: 1; /* Allocate space for the button section */
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+}
+
+.button-section button {
   padding: 1rem 2rem; /* Larger padding for bigger buttons */
   border-radius: 10px; /* Rounded corners */
   border: none; /* No border */
@@ -21,70 +64,27 @@
   cursor: pointer; /* Cursor indicates button can be clicked */
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for effects */
-  position: absolute;
-  margin-top: 13rem;
-  margin-left:10rem;
+}
 
- }
-  .image-section{
-    display: flex;
-    width: 100%;
-    max-width: 1200px; /* Adjust as necessary */
-    align-items: center;
-    justify-content: center; /* Center the children */
-    padding: 1rem;
-    box-sizing: border-box;
-    flex-wrap: wrap; /* Wrap items to the next line if not enough space */
-    
+.button-section button:hover, .button-section button:focus {
+  transform: translateY(-2px); /* Slightly raise the button */
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for a "lifted" effect */
+  background-color: #367B37;
+}
 
-  }
-  .bottom-left-image {
-    flex: 1; /* Allow the image to grow */
-    max-width: 50%; /* Set the maximum width for the image */
-    height: auto;
-    margin-right: 2rem; /* Add some right margin to the image */
-  }
-  
-  .button-section {
-    flex: 1; /* Allocate space for the button section */
-    display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-    gap: 10px; /* Space between buttons */
-  }
+.button-section button:active {
+  transform: translateY(1px); /* Slightly depress the button when clicked */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Smaller shadow for a "pressed" effect */
+}
 
-  .button-section button {
-    padding: 1rem 2rem; /* Larger padding for bigger buttons */
-    border-radius: 10px; /* Rounded corners */
-    border: none; /* No border */
-    font-size: 1.2rem; /* Larger font size */
-    font-weight: bold; /* Make text bold */
-    letter-spacing: 1px; /* Space out the letters a little */
-    background-color: #9ccca5; /* Primary button color */
-    color: white; /* Text color */
-    cursor: pointer; /* Cursor indicates button can be clicked */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for effects */
-  }
-  
-  .button-section button:hover, .button-section button:focus {
-    transform: translateY(-2px); /* Slightly raise the button */
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for a "lifted" effect */
-    background-color: #367B37;
-  }
-  
-  .button-section button:active {
-    transform: translateY(1px); /* Slightly depress the button when clicked */
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Smaller shadow for a "pressed" effect */
-  }
-  
-  .tagline {
-    font-size: 2rem; /* Larger font size for prominence */
-    color: #367B37; /* A color that contrasts well with the button section background */
-    font-weight: 500; /* Semi-bold font weight */
-    margin-bottom: 0.1rem; /* More space between the tagline and buttons */
-    text-align: center; /* Center the tagline */
-    text-transform: uppercase; /* Uppercase letters for stylistic preference */
-    letter-spacing: 0.1rem; /* Spacing out letters for better readability */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
-  }
+.tagline {
+  font-size: 2rem; /* Larger font size for prominence */
+  color: #367B37; /* A color that contrasts well with the button section background */
+  font-weight: 500; /* Semi-bold font weight */
+  margin-bottom: 0.1rem; /* More space between the tagline and buttons */
+  text-align: center; /* Center the tagline */
+  text-transform: uppercase; /* Uppercase letters for stylistic preference */
+  letter-spacing: 0.1rem; /* Spacing out letters for better readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+}
 
