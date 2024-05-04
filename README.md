@@ -16,7 +16,9 @@ cd my-backend
 pip install -r requirements.txt # Install all required packages
 ```
 
-## add environmnet variables-set up Hugging face token
+## add environment variables-set up Hugging face token(already one-setup here)
+
+Note: if github clone: then this setup is necessary
 
 ```bash
 
