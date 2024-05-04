@@ -55,3 +55,7 @@ npm start
 ### the sample review file to upload in the application
 
 the csv file of reviews and the format is given with the name :'sample_reviews'
+
+### Reviwing the prompts in the study:
+
+the template.py file in the my-backend folder - consists of the necssary prompts to interact with LLM

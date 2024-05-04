@@ -7,7 +7,7 @@ you are honest and critical decision maker and expert in flow chart decision mak
 
 [INST]
 Objective :think step by step  following the flowchart guidance below to identify and summarize negative aspects of {aspect} of the hotel in the review with evidence
-Make sure to give the summary at the end , don't take much time
+Make sure to give the summary at the end
 Note:
 Don't assume until critically analyzed correctely and DON't hallucinate, truthful information is required
 
