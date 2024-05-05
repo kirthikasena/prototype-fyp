@@ -59,3 +59,7 @@ the csv file of reviews and the format is given with the name :'sample_reviews'
 ### Reviwing the prompts in the study:
 
 the template.py file in the my-backend folder - consists of the necssary prompts to interact with LLM
+
+### Dataset of this study url:
+
+https://drive.google.com/drive/folders/1J4FbQmi_UswK6I3yYsEPc-wh6hpTDLQ8?usp=sharing
